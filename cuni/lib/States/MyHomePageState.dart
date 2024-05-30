@@ -1,4 +1,3 @@
-import 'package:cuni/States/MyLoginPageState.dart';
 import 'package:cuni/main.dart';
 import 'package:flutter/material.dart';
 
@@ -53,7 +52,12 @@ class MyHomePageState extends State<MyHomePage> {
               ),
             const Text("La mejor forma de aprender"),
             ElevatedButton(
-              onPressed: (){}, 
+              onPressed: (){
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MyMainPage(title: '',)),
+                );
+              }, 
               child: Text("Empezar")),
             TextButton(
               onPressed: (){
@@ -62,7 +66,7 @@ class MyHomePageState extends State<MyHomePage> {
                   MaterialPageRoute(builder: (context) => const MyLoginPage(title: '',)),
                 );
               },
-              child: Text("Ya tengo una cuenta, empezar")),
+              child: Text("Ya tengo una cuenta, ingresar")),
           ],
         ),
       ),

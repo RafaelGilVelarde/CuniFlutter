@@ -5,6 +5,8 @@ class MyLoginPageState extends State<MyLoginPage> {
 
   @override
   Widget build(BuildContext context) {
+
+    bool? isChecked = false;
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -37,7 +39,23 @@ class MyLoginPageState extends State<MyLoginPage> {
             TextFormField(),
             TextButton(
               onPressed: (){},
-              child: Text("¿Olvidaste tu contraseña?")),
+              child: const Text("¿Olvidaste tu contraseña?")),
+            StatefulBuilder(builder: (context, builderSetState) => 
+              CheckboxListTile(
+                  title: const Text("He leído y acepto los términos y condiciones"),
+                  value: isChecked,
+                  onChanged: (bool? newValue) {
+                    builderSetState(() {
+                      isChecked = newValue;
+                    });
+                  },
+                  controlAffinity: ListTileControlAffinity.leading,
+                )       
+            ,),
+            ElevatedButton(
+              onPressed: (){}, 
+              child: Text("Ingresar")
+            ),
           ],
         ),
       ),
