@@ -1,7 +1,8 @@
+import 'package:cuni/States/MainPage/MyMainPage.dart';
 import 'package:flutter/material.dart';
 import 'package:cuni/States/MyHomePageState.dart';
 import 'package:cuni/States/MyLoginPageState.dart';
-import 'package:cuni/States/MyMainPageState.dart';
+import 'package:cuni/States/MyBaseMainPageState.dart';
 
 
 void main() {
@@ -62,6 +63,13 @@ class MyLoginPage extends StatefulWidget {
   final String title;
   @override
   State<MyLoginPage> createState() => MyLoginPageState();
+}
+
+class MyBaseMainPage extends StatefulWidget {
+  const MyBaseMainPage({super.key, required this.title});
+  final String title;
+  @override
+  State<MyBaseMainPage> createState() => MyBaseMainPageState();
 }
 
 class MyMainPage extends StatefulWidget {

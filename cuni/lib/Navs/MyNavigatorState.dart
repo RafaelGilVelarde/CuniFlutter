@@ -1,4 +1,4 @@
-import 'package:cuni/States/MyMainPageState.dart';
+import 'package:cuni/States/MyBaseMainPageState.dart';
 import 'package:cuni/main.dart';
 import 'package:flutter/material.dart';
 
@@ -11,12 +11,12 @@ class TabNavigator extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget child=this;
     switch (tabItem){
-      case "mainPage":
-            child = const MyHomePage(title: " ");
       case "notebook":
+            child = const MyMainPage(title: " ");
+      case "mainPage":
             child = const MyLoginPage(title: " ");
       case "stats":
-            child = const MyHomePage(title: " ");
+            child = const MyMainPage(title: " ");
       case "profile":
             child = const MyLoginPage(title: " ");
     }    

@@ -1,7 +1,8 @@
+import 'package:cuni/Buttons/MainPageButtons.dart';
 import 'package:cuni/main.dart';
 import 'package:flutter/material.dart';
 
-class MyHomePageState extends State<MyHomePage> {
+class MyMainPageState extends State<MyMainPage> {
 
   @override
   Widget build(BuildContext context) {
@@ -12,21 +13,6 @@ class MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Colors.deepPurple[300],
-        
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        leadingWidth: 500,
-        leading: const Image(
-            image: AssetImage('Assets/Images/Logo_sin fondo.png'),
-            alignment: Alignment.center,
-            
-        )
-      ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
@@ -46,27 +32,31 @@ class MyHomePageState extends State<MyHomePage> {
           // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image(
-              image:AssetImage('Assets/Images/CUNI.png'),
-              fit: BoxFit.scaleDown
+            MainPageButtons(
+              "Simulacro", 
+              "ULima",
+              "Inserta examen aca",
+              MaterialPageRoute(builder: (context) => const MyLoginPage(title: '',)),
               ),
-            const Text("La mejor forma de aprender"),
-            ElevatedButton(
-              onPressed: (){
-                  Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const MyBaseMainPage(title: '',)),
-                );
-              }, 
-              child: Text("Empezar")),
-            TextButton(
-              onPressed: (){
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const MyLoginPage(title: '',)),
-                );
-              },
-              child: Text("Ya tengo una cuenta, ingresar")),
+
+              const SizedBox(height: 10),
+
+              MainPageButtons(
+              "Simulacro", 
+              "UNI",
+              "Inserta examen aca",
+              MaterialPageRoute(builder: (context) => const MyLoginPage(title: '',)),
+              ),
+
+              const SizedBox(height: 10),
+
+              
+              MainPageButtons(
+              "Simulacro", 
+              "UNMSM",
+              "Inserta examen aca",
+              MaterialPageRoute(builder: (context) => const MyLoginPage(title: '',)),
+              )
           ],
         ),
       ),

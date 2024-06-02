@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 enum TabItem {mainPage, notebook, stats, profile}
 
-class MyMainPageState extends State<MyMainPage> {
+class MyBaseMainPageState extends State<MyBaseMainPage> {
 
   TabItem currentTab = TabItem.mainPage;
 
