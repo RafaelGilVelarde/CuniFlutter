@@ -12,53 +12,33 @@ class MyMainPageState extends State<MyMainPage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
+    List<Widget> buttons=[];
+    for(int i=0;i<5;i++){
+      buttons.add(
+        MainPageButtons(
+          "Simulacro", 
+          "ULima",
+          "Inserta examen aca",
+          MaterialPageRoute(builder: (context) => const MyLoginPage(title: '',)),
+          )
+      );
+      buttons.add(
+        const SizedBox(height: 10)        
+      );
+    }
+
     return Scaffold(
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            MainPageButtons(
-              "Simulacro", 
-              "ULima",
-              "Inserta examen aca",
-              MaterialPageRoute(builder: (context) => const MyLoginPage(title: '',)),
-              ),
+        child: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          color: Color(0xff7f6fae),
+          child: Column(
 
-              const SizedBox(height: 10),
-
-              MainPageButtons(
-              "Simulacro", 
-              "UNI",
-              "Inserta examen aca",
-              MaterialPageRoute(builder: (context) => const MyLoginPage(title: '',)),
-              ),
-
-              const SizedBox(height: 10),
-
-              
-              MainPageButtons(
-              "Simulacro", 
-              "UNMSM",
-              "Inserta examen aca",
-              MaterialPageRoute(builder: (context) => const MyLoginPage(title: '',)),
-              )
-          ],
-        ),
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: buttons
+          ),
+        )
       ),
     );
   }

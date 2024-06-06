@@ -18,7 +18,7 @@ class MyLoginPageState extends State<MyLoginPage> {
         // TRY THIS: Try changing the color here to a specific color (to
         // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
         // change color while the other colors stay the same.
-        backgroundColor: Colors.deepPurple[300],
+        backgroundColor: Color(0xff7f6fae),
         
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
@@ -30,34 +30,65 @@ class MyLoginPageState extends State<MyLoginPage> {
         )
       ),
       body: Form(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text("Email"),
-            TextFormField(),
-            const Text("Contraseña"),
-            TextFormField(),
-            TextButton(
-              onPressed: (){},
-              child: const Text("¿Olvidaste tu contraseña?")),
-            StatefulBuilder(builder: (context, builderSetState) => 
-              CheckboxListTile(
-                  title: const Text("He leído y acepto los términos y condiciones"),
-                  value: isChecked,
-                  onChanged: (bool? newValue) {
-                    builderSetState(() {
-                      isChecked = newValue;
-                    });
-                  },
-                  controlAffinity: ListTileControlAffinity.leading,
-                )       
-            ,),
-            ElevatedButton(
-              onPressed: (){}, 
-              child: Text("Ingresar")
+        child: Container(
+          color: Color(0xff7f6fae),
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          alignment: Alignment.center,
+          child: Container(
+            decoration: BoxDecoration(
+              color: Color(0xfff0e9c0),
+              borderRadius: BorderRadius.all(Radius.circular(20))
             ),
-          ],
-        ),
+            height: MediaQuery.of(context).size.height * 0.75,
+            width: MediaQuery.of(context).size.width * 0.85,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                const Text("Email"),
+                TextFormField(
+                    decoration: const InputDecoration(
+                      filled: true,
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(50)),
+                      ),                    
+                  ),),
+                const Text("Contraseña"),
+                TextFormField(
+                    obscureText: true,
+                    decoration: const InputDecoration(
+                      filled: true,
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(50)),
+                      ),                                        
+                  ),
+                ),
+                TextButton(
+                  onPressed: (){},
+                  child: const Text("¿Olvidaste tu contraseña?")),
+                StatefulBuilder(builder: (context, builderSetState) => 
+                  CheckboxListTile(
+                      title: const Text("He leído y acepto los términos y condiciones"),
+                      value: isChecked,
+                      onChanged: (bool? newValue) {
+                        builderSetState(() {
+                          isChecked = newValue;
+                        });
+                      },
+                      controlAffinity: ListTileControlAffinity.leading,
+                    )       
+                ,),
+                ElevatedButton(
+                  onPressed: (){}, 
+                  child: Text("Ingresar")
+                ),
+              ],
+            ),
+          )
+
+        )
       ),
     );
   }
